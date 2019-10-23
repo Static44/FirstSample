@@ -1,0 +1,34 @@
+﻿@model FirstSample.Models.GuestResponse
+
+@{
+    ViewData["Title"] = "RsvpForm";
+}
+
+<h2>RsvpForm</h2>
+
+<h4>GuestResponse</h4>
+<hr />
+
+<body>
+<div class="jumbotron">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+
+            //Keeps out XSS attacks
+            @Html.AntiForgeryToken()
+            //Outputs error as text
+            @Html.ValidationSummary(false, "", new { @class = "text-danger"})
+
+            <p>Name: @Html.TextBoxFor(x => x.Name)</p>
+            <p>Email: @Html.TextBoxFor(x => x.Email)</p>
+            <p>Confirm Email @Html.TextBoxFor(x => x.ConfirmEmail)</p>
+            <p>Phone: @Html.TextBoxFor(x => x.Phone)</p>
+
+
+        }
+    </div>
+</div>
+
+</body>
+

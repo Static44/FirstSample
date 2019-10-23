@@ -1,0 +1,27 @@
+﻿@model FirstSample.Models.GuestResponse
+
+@{
+    ViewBag["Title"] = "Thanks";
+}
+
+<body>
+    <div>
+       
+        <h1>
+            Thank You @Model.Name
+        </h1>
+        @if (Model.WillAttend == true)
+        {
+            <p>
+                See You Soon!
+            </p>
+        }
+        else
+        {
+            <p>
+                Maybe Next Time!
+            </p>
+        }
+
+    </div>
+</body>
